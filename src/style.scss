@@ -2,5 +2,29 @@ body {
   font-family: "Roboto", sans-serif;
   color: rgb(10%, 10%, 10%);
   background: darken(white, 10%);
-  margin: 50px;
+}
+.noteInputForm {
+  margin-top: 20px;
+}
+.createInput {
+  width: 60vw;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding-left: 10px;
+  font-size: 20px;
+  outline: none;
+  display: inline;
+}
+.createInputButton {
+  width: 80px;
+  height: 44px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  font-size: 20px;
+  outline: none;
+  background-color: #3498db;
+  margin-left: 10px;
+  color: #fff;
+  display: inline;
 }
