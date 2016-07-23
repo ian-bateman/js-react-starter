@@ -11,8 +11,12 @@ class NoteInput extends React.Component {
     this.createInputText = this.createInputText.bind(this);
   }
   // function to add note imported from app.js, uses entered text
-  addNote() {
+  addNote(event) {
+    event.preventDefault();
     this.props.addNote(this.state.text);
+    this.setState({
+      text: '',
+    });
   }
   // function to enable driven input component to work
   createInputText(event) {
@@ -20,7 +24,6 @@ class NoteInput extends React.Component {
       text: event.target.value,
     });
   }
-
   render() {
     return (
       <div>
@@ -31,6 +34,7 @@ class NoteInput extends React.Component {
             placeholder="Create a new note..."
             value={this.state.text}
             onChange={this.createInputText}
+            required
           />
           <button className="createInputButton" type="submit">Create</button>
         </form>
@@ -38,5 +42,4 @@ class NoteInput extends React.Component {
     );
   }
 }
-
 export default NoteInput;

@@ -16,6 +16,7 @@ body {
   outline: none;
   display: inline;
 }
+// color taken from https://flatuicolors.com/
 .createInputButton {
   width: 80px;
   height: 44px;
@@ -27,4 +28,45 @@ body {
   margin-left: 10px;
   color: #fff;
   display: inline;
+}
+.noteCard {
+  // height: 250px;
+  max-width: 300px;
+  padding: 20px 20px 20px 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+// color taken from https://flatuicolors.com/
+.buttonBar button {
+  background-color: #3498db;
+  border: 1px solid #000;
+  border-radius: 2px;
+  margin-left: 5px;
+  color: #fff;
+  outline: none;
+}
+.textInput {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 15px;
+  display: block;
+  outline: none;
+}
+// overflow handling taken from https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+.noteBody {
+  overflow: scroll;
+  overflow-wrap: break-word;
+  text-align: justify;
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  max-width: 300px;
+  padding-left: 5px;
+}
+// overflow handling taken from https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+.titleDisplay {
+  overflow: scroll;
+  overflow-wrap: break-word;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }
