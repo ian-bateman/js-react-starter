@@ -47,12 +47,13 @@ class NoteObj extends React.Component {
     // checks and renders if note is in edit mode, else renders saved mode
     if (this.state.editMode === true) {
       // most of draggable given
+      const noteLocation = { x: this.props.note.x, y: this.props.note.y };
       return (
         <Draggable
           handle=".note-mover"
           grid={[25, 25]}
           defaultPosition={{ x: 20, y: 20 }}
-          position={null}
+          position={noteLocation}
           onStart={this.onStartDrag}
           onDrag={this.onDrag}
           onStop={this.onStopDrag}
@@ -72,12 +73,13 @@ class NoteObj extends React.Component {
       // dangerouslySetInnerHTML function given
       // most of draggable given
       // position code taken from https://github.com/mzabriskie/react-draggable
+      const noteLocation = { x: this.props.note.x, y: this.props.note.y };
       return (
         <Draggable
           handle=".note-mover"
           grid={[25, 25]}
-          defaultPosition={{ x: 0, y: 0 }}
-          position={null}
+          defaultPosition={{ x: 20, y: 20 }}
+          position={noteLocation}
           onStart={this.onStartDrag}
           onDrag={this.onDrag}
           onStop={this.onStopDrag}

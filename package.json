@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/webpack-dev-server --inline --hot",
     "build": "WEBPACK_ENV=production node_modules/.bin/webpack --optimize-minimize --progress --color",
-    "deploy": "npm run build; surge -p . -d ian-bateman-notes-app.surge.sh"
+    "deploy": "npm run build; surge -p . -d ian-bateman-notes-app-firebase.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "firebase": "^3.2.0",
     "immutable": "^3.8.1",
     "marked": "^0.3.5",
     "react": "^15.2.1",

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Immutable from 'immutable';
 import NoteInput from './noteInput.js';
 import NoteObj from './noteObj.js';
+import * as firebasedb from '../firebasedb';
 
 // example class based component (smart component)
 class App extends Component {
@@ -17,6 +18,14 @@ class App extends Component {
     this.updateId = this.updateId.bind(this);
     this.moveId = this.moveId.bind(this);
   }
+
+  componentDidMount() {
+    firebasedb.fetchNotes((notes) => {
+      this.setState({
+        notes: Immutable.Map(notes),
+      });
+    });
+  }
   // function to create a noteObj
   addNote(title) {
     // mostly given
@@ -27,33 +36,19 @@ class App extends Component {
       y: 0,
       zIndex: 1,
     };
-    this.setState({
-      // mostly given
-      notes: this.state.notes.set(this.state.id, note),
-      // increment the id
-      id: this.state.id + 1,
-    });
+    firebasedb.addNoteDB(note);
   }
   // function to delete a noteObj
   deleteId(id) {
-    this.setState({
-      // given
-      notes: this.state.notes.delete(id),
-    });
+    firebasedb.deleteIdDB(id);
   }
   // function to update a noteObj
   updateId(id, text) {
-    this.setState({
-      // mostly given
-      notes: this.state.notes.update(id, (n) => { return Object.assign({}, n, { text }); }),
-    });
+    firebasedb.updateIdDB(id, text);
   }
   // function to move a noteObj
-  moveId(id, xCoord, yCoord) {
-    // mostly given
-    this.setState({
-      notes: this.state.notes.update(id, (n) => { return Object.assign({}, n, { x: xCoord, y: yCoord }); }),
-    });
+  moveId(id, x, y) {
+    firebasedb.moveIdDB(id, x, y);
   }
   render() {
     // entrySeq function given
